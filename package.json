@@ -1,8 +1,8 @@
 {
-  "name": "word_scramble",
-  "version": "1.0.0",
-  "description": "",
-  "main": "perms.js",
+  "name": "perm_displacement",
+  "version": "1.0.1",
+  "description": "Functions for mesing around with string permutation displacements",
+  "main": "perm_displacement.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
