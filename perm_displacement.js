@@ -4,7 +4,7 @@ const perms = require('get-unique-permutations');
 /* 
 *   Returns all or a number of permutations of string
 */
-permutations = (word, num) => {
+export const permutations = (word, num) => {
     let permsGenerator = perms(word.split(''));
     let result =[];
 
@@ -19,7 +19,7 @@ permutations = (word, num) => {
 /*
 *   Returns a random permutation of a string using Durstenfeld Shuffle
 */
-random_permutation = (word) => {
+export const random_permutation = (word) => {
     const chars = word.split('');
     for (i = chars.length -1 ; i >= 1; i--) {
         let num = rand(i);
@@ -32,7 +32,7 @@ random_permutation = (word) => {
 /*
 *   Returns the absolute displacement of 2 strings
 */
-absolute_displacement = (word, drow) => {
+export const absolute_displacement = (word, drow) => {
     let sum = 0;
     drowArray = _.split(drow,'');
     wordArray = _.split(word,'');
@@ -50,14 +50,14 @@ absolute_displacement = (word, drow) => {
 /*
 *   Returns the maximum absolute displacement of a word
 */
-max_absolute_displacement = (word) => {
+export const max_absolute_displacement = (word) => {
     return Math.floor(Math.pow((word.length/2),2)*2);
 }
 
 /*
 *   Returns an array of words with a specific displacement
 */
-all_absolute_displacements = (word, num) => {
+export const all_absolute_displacements = (word, num) => {
     let words = [];
 
     if (!num) {
@@ -79,7 +79,7 @@ all_absolute_displacements = (word, num) => {
 *   value: is the sum of perms of that displacement 
 *   (I'm sure there's a sexier, mathier way of doing this, but I'm just a hack:))
 */
-absolute_displacement_distribution = (word) => {
+export const absolute_displacement_distribution = (word) => {
     let words = permutations(word);
     let result = {};
     for (i = 0; i <= max_absolute_displacement(word); i+=2) {
@@ -96,7 +96,7 @@ absolute_displacement_distribution = (word) => {
 
 
 // Returns the displacement code
-displacement_code = (word, drow) => {
+export const displacement_code = (word, drow) => {
     let code = []
 
     drowArray = _.split(drow,'');
@@ -111,6 +111,3 @@ displacement_code = (word, drow) => {
 }
 
 const rand = (max) => Math.floor(Math.random() * (max+1));
-
-
-console.log(absolute_displacement_distribution("abcdefg"));
