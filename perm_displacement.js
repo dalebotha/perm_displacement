@@ -4,7 +4,7 @@ const perms = require('get-unique-permutations');
 /* 
 *   Returns all or a number of permutations of string
 */
-export const permutations = (word, num) => {
+const permutations = (word, num) => {
     let permsGenerator = perms(word.split(''));
     let result =[];
 
@@ -19,7 +19,7 @@ export const permutations = (word, num) => {
 /*
 *   Returns a random permutation of a string using Durstenfeld Shuffle
 */
-export const random_permutation = (word) => {
+const random_permutation = (word) => {
     const chars = word.split('');
     for (i = chars.length -1 ; i >= 1; i--) {
         let num = rand(i);
@@ -32,7 +32,7 @@ export const random_permutation = (word) => {
 /*
 *   Returns the absolute displacement of 2 strings
 */
-export const absolute_displacement = (word, drow) => {
+const absolute_displacement = (word, drow) => {
     let sum = 0;
     drowArray = _.split(drow,'');
     wordArray = _.split(word,'');
@@ -50,14 +50,14 @@ export const absolute_displacement = (word, drow) => {
 /*
 *   Returns the maximum absolute displacement of a word
 */
-export const max_absolute_displacement = (word) => {
+const max_absolute_displacement = (word) => {
     return Math.floor(Math.pow((word.length/2),2)*2);
 }
 
 /*
 *   Returns an array of words with a specific displacement
 */
-export const all_absolute_displacements = (word, num) => {
+const all_absolute_displacements = (word, num) => {
     let words = [];
 
     if (!num) {
@@ -79,7 +79,7 @@ export const all_absolute_displacements = (word, num) => {
 *   value: is the sum of perms of that displacement 
 *   (I'm sure there's a sexier, mathier way of doing this, but I'm just a hack:))
 */
-export const absolute_displacement_distribution = (word) => {
+const absolute_displacement_distribution = (word) => {
     let words = permutations(word);
     let result = {};
     for (i = 0; i <= max_absolute_displacement(word); i+=2) {
@@ -96,7 +96,7 @@ export const absolute_displacement_distribution = (word) => {
 
 
 // Returns the displacement code
-export const displacement_code = (word, drow) => {
+const displacement_code = (word, drow) => {
     let code = []
 
     drowArray = _.split(drow,'');
@@ -110,4 +110,6 @@ export const displacement_code = (word, drow) => {
     return code;
 }
 
-const rand = (max) => Math.floor(Math.random() * (max+1));
+rand = (max) => Math.floor(Math.random() * (max+1));
+
+exports = { permutations, random_permutation, absolute_displacement, max_absolute_displacement, all_absolute_displacements, absolute_displacement_distribution , displacement_code }
