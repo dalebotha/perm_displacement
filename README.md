@@ -18,11 +18,11 @@ When I looked this up I got scared by the crazy math symbols but I found out tha
 
 accepts a string and n(optional) and returns an array of arrays of all permutations of the string or n number of permutations
 
-`permutations("ab")`
+**`permutations("ab")`**
 
 **returns:** `[ [ 'a', 'b' ], [ 'b', 'a' ] ]`
 
-`permutations("abc",2)`
+**`permutations("abc",2)`**
 
 **returns:** `[ [ 'a', 'b', 'c' ], [ 'a', 'c', 'b' ] ]`
 
@@ -78,5 +78,36 @@ accepts a string and number(optional) and returns all permutations of that strin
   [ 'd', 'c', 'b', 'a' ]
 ]
 ```
+## absolute_displacement_distribution(string)
 
+returns an array of objects with key:value pairs.
+
+**key:** is the absolute displacement
+
+**value:** is the sum of permutations of that displacement 
+
+(I'm sure there's a sexier, mathier way of doing this, but I'm just a hack :smile:)
+
+**`absolute_displacement_distribution("abcdefg")`**
+
+```{
+  '0': 1,
+  '2': 6,
+  '4': 25,
+  '6': 76,
+  '8': 187,
+  '10': 366,
+  '12': 591,
+  '14': 744,
+  '16': 884,
+  '18': 832,
+  '20': 716,
+  '22': 360,
+  '24': 252
+}
+```
+
+## displacement_code(string, gnirts)
+
+returns an array of the relative individual displacments of characters...not sure how this is useful but hey!
 

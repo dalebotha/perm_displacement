@@ -67,7 +67,6 @@ all_absolute_displacements = (word, num) => {
     permutations(word).forEach(w_perm => { 
         if (absolute_displacement(_.join(w_perm,''),word) == num) {
             words.push(w_perm);
-            //cl(w_perm.join(''))
         } 
     })
     
@@ -114,4 +113,4 @@ displacement_code = (word, drow) => {
 const rand = (max) => Math.floor(Math.random() * (max+1));
 
 
-console.log(all_absolute_displacements("abcd"));
+console.log(absolute_displacement_distribution("abcdefg"));
